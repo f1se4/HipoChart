@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+	<form action="" method="post">
+		<div class="container">
+		  <div class="row">
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="nameA" required="true">Category 1 Name</label>
+				  <input type="text" class="form-control" name="nameA" placeholder="Name A" id="nameA">
+				</div>	
+			</div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="valueA" required="true">Category 1 -> 0/100 %</label>
+				  <input type="text" class="form-control" name="valueA" placeholder="40" id="valueA">
+				</div>	
+			</div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="colorA" required="true">Color in html #XXXXXX</label>
+				  <input type="text" class="form-control" name="colorA" placeholder="#F4D03F" id="valueA">
+				</div>	
+			</div>
+			<div class="w-100"></div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="nameB" required="true">Category 2 Name</label>
+				  <input type="text" class="form-control" name="nameB" placeholder="Name B" id="nameB">
+				</div>	
+			</div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="valueB" required="true">Category 2 -> 0/100 %</label>
+				  <input type="text" class="form-control" name="valueB" placeholder="50" id="valueB">
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="colorB" required="true">Color in html #XXXXXX</label>
+				  <input type="text" class="form-control" name="colorB" placeholder="#F39C12" id="colorB">
+				</div>
+			</div>
+			<div class="w-100"></div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="average" required="true">Average -> 0/100 %</label>
+				  <input type="text" class="form-control" name="average" placeholder="33" id="valueB">
+				</div>
+			</div>
+			<div class="col">
+				<div class="form-group">
+				  <label class="col-form-label" for="averagecolor" required="true">Color in html #XXXXXX</label>
+				  <input type="text" class="form-control" name="averagecolor" placeholder="#EDBB99" id="averagecolor">
+				</div>
+			</div>
+		  </div>
+		<div class="card text-white bg-info mb-3">
+		  <div class="card-body">
+			<div class="form-group">
+			  <label class="col-form-label" for="background" required="true">Background color #XXXXXX</label>
+			  <input type="text" class="form-control" name="backgroundcolor" placeholder="#273746" id="backgroundcolor">
+			</div>
+			<div class="form-group">
+			  <label class="col-form-label" for="textcolor" required="true">Text label color #XXXXXX</label>
+			  <input type="text" class="form-control" name="textcolor" placeholder="#ffffff" id="textcolor">
+			</div>
+		  </div>
+		</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		<br>
+		<p class="text-success">{{ respuesta }}</p>
+		<p class="text-danger">{{ error }}</p>
+	</form>
+</div>
+{% endblock %}
