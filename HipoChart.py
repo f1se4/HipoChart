@@ -11,7 +11,7 @@ from matplotlib import rcParams
 #df = pd.read_excel("ChartFile.xlsx")
 
 def f_make_hipo_chart(df):
-    a = float(df['Average'][0]) / 100
+    a = 1 - float(df['Average'][0]) / 100
     b = 1 - float(df.iloc[0][0]) / 100
     c = 1 - float(df.iloc[0][1]) / 100 
     
