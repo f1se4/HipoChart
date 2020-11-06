@@ -8,7 +8,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib import rcParams
 
-#df = pd.read_excel("ChartFile.xlsx")
+def f_label(val, lab):
+    return lab + " {:.1f}%".format(val)
+
 
 def f_make_hipo_chart(df):
     a = 1 - float(df['Average'][0]) / 100
@@ -21,36 +23,39 @@ def f_make_hipo_chart(df):
     plt.figure(figsize=(9,7),dpi=300)
     
     # Average
-    wedges, labels=plt.pie([50,50], radius=1-a, labels=['Average',''], colors=[df['Average'][1]])
+    wedges, labels =plt.pie([50,50], 
+                            radius=1-a, 
+                            labels=[f_label(float(df['Average'][0]),'Average'),''],
+                            colors=[df['Average'][1]])
     wedges[1].set_visible(False)
     
     # Categories
     if b > c:
         wedges2, labels2=plt.pie([50,50], 
                                  radius=1-c, 
-                                 labels=['',df.columns[1]], 
+                                 labels=['',f_label(float(df.iloc[0][1]),df.columns[1])],
                                  colors=[df.iloc[1][0]])
         wedges2[0].set_visible(False)
         for t in labels2:
             t.set_horizontalalignment('left')
-        wedges3, labels3=plt.pie([50,50], 
+        wedges3, labels3 = plt.pie([50,50], 
                                  radius=1-b, 
-                                 labels=['',df.columns[0]], 
+                                 labels=['',f_label(float(df.iloc[0][0]),df.columns[0])],
                                  colors=[df.iloc[1][1]])
         wedges3[0].set_visible(False)
         for t in labels3:
             t.set_horizontalalignment('right')    
     else:
-        wedges2, labels2=plt.pie([50,50], 
+        wedges2, labels2 =plt.pie([50,50], 
                                  radius=1-b, 
-                                 labels=['',df.columns[0]], 
+                                 labels=['',f_label(float(df.iloc[0][0]),df.columns[0])],
                                  colors=[df.iloc[1][1]])
         wedges2[0].set_visible(False)
         for t in labels2:
             t.set_horizontalalignment('left')    
-        wedges3, labels3=plt.pie([50,50], 
+        wedges3, labels3 = plt.pie([50,50], 
                                  radius=1-c, 
-                                 labels=['',df.columns[1]], 
+                                 labels=['',f_label(float(df.iloc[0][1]),df.columns[1])],
                                  colors=[df.iloc[1][0]])
         wedges3[0].set_visible(False)
         for t in labels3:
@@ -96,4 +101,13 @@ def f_validaciones(valueA,
     elif averagecolor == '':
         return 'All fields must be informed'
     else:
-        return 'ok' 
+        return 'ok'
+
+def main():
+    df = pd.read_excel("ChartFile.xlsx")
+    f_make_hipo_chart(df)
+        
+    
+if __name__ == "__main__":
+    main()
+
