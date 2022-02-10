@@ -5,11 +5,13 @@ Simple and little webservice to help to delivery helpdesk team to draw something
 Which is frequency chart with mean and 2 values, see screenshots below.
 
 ## Requirements
-python
-flask
-matplotlib
+- python
+- flask
+- matplotlib
 
 ## Images
+Full random data
+
 ![SelectScreen](hipo1.png)
 
 ![Hipochart](hipo2.png)
